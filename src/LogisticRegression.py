@@ -12,13 +12,10 @@ class LogisticRegression:
 
     # X = N-dimensional vector (N - no.of features) - size M (M - no.of samples)
     # Y = 1-dimensional vector - size M (M - no.of samples)
-    def fit(self, _X, _y):
-        # init parameters
-        X = _X
-        y = _y
-
+    def fit(self, X, y):
         n_samples, n_features = X.shape
-        self.weights = np.zeros(n_features) # vector of only zeros
+
+        self.weights = np.zeros(n_features)  # vector of only zeros
         self.bias = 0
 
         # gradient descent
@@ -36,7 +33,7 @@ class LogisticRegression:
         linear_model = np.dot(X, self.weights) + self.bias
         y_predicted = self._sigmoid(linear_model)
         y_predicted_classes = [1 if i >= self.threshold else 0 for i in y_predicted]
-        return y_predicted_classes
+        return np.asarray(y_predicted_classes)
 
     def _sigmoid(self, x):
         return 1 / (1 + np.exp(-x))
