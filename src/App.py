@@ -28,12 +28,6 @@ data_set.columns = [col.strip() for col in data_set.columns]  # strip whitespace
 
 prepared_data_set = pre_process(data_set, 1)  # pre process data
 
-# x = prepared_data_set.values #returns a numpy array
-# min_max_scaler = preprocessing.MinMaxScaler()
-# x_scaled = min_max_scaler.fit_transform(x)
-# df = pd.DataFrame(x_scaled)
-
-
 COLUMNS = [
     f.CLUMP_THICKNESS,
     f.UNIFORMITY_OF_CELL_SIZE,
